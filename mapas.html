@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mapas</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+    </head>
+<body>
+    <!-- Header -->
+        <header id="header">
+            <div class="inner" id="altura">
+                <img src="images/rectec.png" class="logo" width="150">
+                <nav id="nav">
+                    <a href="index.html">Home</a>
+                    <a href="generic.html">Dashboards</a>
+                    <a href="elements.html">Softwares</a>
+                    <a href="alerta.html">Desenvolvimento</a>
+                    <a href="mapas.html">Mapas</a>
+                </nav>
+            </div>
+        </header>
+        <a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+		<section>
+            <p style="width: 15%; float: left; text-align: center; padding-top: 0.5%;" for="mapas"><b>Selecione o Mapa: </b></p>
+            <select style="width: 85%;" name="mapas" id="mapas" onchange="mudarImg()">
+                <option value="social">
+                    Pluviômetros da Pluviômetria Social
+                </option>
+                <option value="cemaden">
+                    Pluviômetros do Cemaden
+                </option>
+                <option value="ipa">
+                    Pluviômetros de IPA
+                </option>
+            </select>
+            <iframe id="social" style="width: 100%;" src="http://172.16.68.21:8080/dashboard/fb473330-f1db-11e9-9f98-a1673315ee37?publicId=6d860280-f1e3-11e9-9f98-a1673315ee37" frameborder="0" alt></iframe>
+            <iframe id="cemaden" style="width: 100%;" src="http://172.16.68.21:8080/dashboard/11db6df0-fb41-11e9-9f98-a1673315ee37?publicId=6d860280-f1e3-11e9-9f98-a1673315ee37" frameborder="0"></iframe>
+            <iframe id="ipa" style="width: 100%;" src="http://172.16.68.21:8080/dashboard/4f0d2110-fb40-11e9-9f98-a1673315ee37?publicId=6d860280-f1e3-11e9-9f98-a1673315ee37" frameborder="0"></iframe>
+        </section>
+
+    <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/skel.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script>
+            window.onload = () => {
+                var windowHeight = window.innerHeight;
+                document.getElementById("social").style.height = ((windowHeight - document.getElementById("header").offsetHeight - document.getElementById("mapas").offsetHeight)-10) + "px";
+                document.getElementById("cemaden").style.height = ((windowHeight - document.getElementById("header").offsetHeight - document.getElementById("mapas").offsetHeight)-10) + "px";
+                document.getElementById("ipa").style.height = ((windowHeight - document.getElementById("header").offsetHeight - document.getElementById("mapas").offsetHeight)-10) + "px";
+
+                document.getElementById("cemaden").style.display = "none";
+                document.getElementById("ipa").style.display = "none";
+            }
+            function mudarImg () {
+                if (document.getElementById('mapas').value == 'social') {
+                    document.getElementById('social').style.display = 'block';
+                    document.getElementById('cemaden').style.display = 'none';
+                    document.getElementById('ipa').style.display = 'none';
+                }else if (document.getElementById('mapas').value == 'cemaden') {
+                    document.getElementById('social').style.display = 'none';
+                    document.getElementById('cemaden').style.display = 'block';
+                    document.getElementById('ipa').style.display = 'none';
+                }else {
+                    document.getElementById('social').style.display = 'none';
+                    document.getElementById('cemaden').style.display = 'none';
+                    document.getElementById('ipa').style.display = 'block';
+                }
+            }
+        
+        </script>
+</body>
+</html>
