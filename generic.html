@@ -19,10 +19,11 @@
 					<img src="images/rectec.png" class="logo" width="150">
 					<nav id="nav">
 						<a href="index.html">Home</a>
-						<a href="generic.html">Dashboards</a>
+						<a href="generic.html">Tempo Agora</a>
+						<a href="mapas.html">Mapas</a>
 						<a href="elements.html">Softwares</a>
 						<a href="alerta.html">Desenvolvimento</a>
-						<a href="mapas.html">Mapas</a>
+						
 						
 					</nav>
 				</div>
@@ -30,40 +31,16 @@
 			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 
 		<!-- Main -->
-			<section id="main" >
-				<div class="inner">
-					<header class="major special">
-						<blockquote><h1>Pluviômetros Sociais/ Pluviômetros CEMADEN</h1> </blockquote>
-						
-						<p><b>Dashboard da distribuição geográfica dos pluviômetros.</b></p>
-						   <p align="justify"><span class="image left"><img src="images/pic11.jpg" alt="" /></span>A localização exata de onde os pluviômetros estão instalados pode ser obtida pelas informações de latitude e longitude. Tais informações em formato de texto não são inteligíveis para observar a distribuição dos pluviômetros instalados nas localidades do estado de Pernambuco. Desta forma, foi desenvolvido um dashboard na plataforma Thingsboard, utilizando um widget de georeferenciamento, que permitiu mostrar através de pontos em um mapa a localização dos atuais 19 pluviômetros da pluviometria social e os pluviômetros do CEMADEM localizadaos na cidade de Recife a partir das informações de latitude e longitude de instalação destes.</p>
-							<p><b>Dashboard de histograma da pluviometria por pluviômetro.</b></p>
-							<p align="justify"><span class="image right"><img src="images/pic12.jpg" alt="" /></span> O histórico das medições da pluviometria social não permite que possam ser facilmente identificadas lacunas e anomalias de medição da pluviometria, nem comparações entre os pluviômetros. Apresentamos o dashboard desenvolvido no Thingsboard em formato de histograma que descreve a medição da pluviometria (em milímetros) em um período de tempo (janeiro/2018 a maio/2019) de 03 pluviômetros (2018-dois-irmaos, 2018-prae-01, 2018-prae-02) instalados em localidades de Recife, a partir das informações da entidade Pluviometria. </p>
-						</section>
-						
-					</header>
+		<center style="margin-top: 5px;" id="titulo">
+			<h2>Pluviometria CEMADEN em Tempo Real</h2> 
+		</center>
+		<section>
+			<div class="inner">
+				<iframe id="dashboards" width="100%" src="http://172.16.68.21:8080/dashboard/559bdf70-f74a-11e9-9f98-a1673315ee37?publicId=6d860280-f1e3-11e9-9f98-a1673315ee37" frameborder="0"></iframe>
+			</div>
+		</section>
 
- 					<!--<p align="justify"> <b>1) Dashboard da distribuição geográfica dos pluviômetros. </b> </p>
-					<p align="justify">A localização exata de onde os pluviômetros estão instalados pode ser obtida pelas informações de latitude e longitude. Tais informações em formato de texto não são inteligíveis para observar a distribuição dos pluviômetros instalados nas localidades do estado de Pernambuco. Desta forma, foi desenvolvido um dashboard na plataforma Thingsboard, utilizando um widget de georeferenciamento, que permitiu mostrar através de pontos em um mapa a localização dos atuais 19 pluviômetros da pluviometria social a partir das informações de latitude e longitude de instalação destes.</p>
-					<a href="#" class="image fit"><img src="images/pic11.jpg" alt="" /></a>
-					<hr />
-					<p align="justify"> <b>2) Dashboard de histograma da pluviometria por pluviômetro. </b></p>
-					<p align="justify">O histórico das medições da pluviometria social não permite que possam ser facilmente identificadas lacunas e anomalias de medição da pluviometria, nem comparações entre os pluviômetros. Apresentamos o dashboard desenvolvido no Thingsboard em formato de histograma que descreve a medição da pluviometria (em milímetros) em um período de tempo (janeiro/2018 a maio/2019) de 03 pluviômetros (2018-dois-irmaos, 2018-prae-01, 2018-prae-02) instalados em localidades de Recife, a partir das informações da entidade Pluviometria.
-					<a href="#" class="image fit"><img src="images/pic12.jpg" alt="" /></a>-->
-.</p>
-
-					
-					<!--<p align="justify"> <center><b> Dashboards criados na plataforma ThingsBoard. </b></p></center>
-					 <center><IFRAME name=prae src=https://demo.thingsboard.io/dashboard/0a3b9130-7520-11e9-a899-271542c9ec61?publicId=f6508df0-8989-11e9-9232-99753840ce43 width=1130 height=900 frameborder=0 scrolling=yes></center>
-</IFRAME>
-						<center><IFRAME name=prae src=http://172.16.68.21:8080/dashboards/ecd6e620-4a4b-11e9-8515-9d4cbe6426ce?publicId=c04ae6e0-bad7-11e9-8515-9d4cbe6426ce width=1130 height=900 frameborder=0 scrolling=yes></center>
-
-</IFRAME>-->
-
-				</div>
-			</section>
-
-		<!-- Footer -->
+		<!-- Footer 
 			<section id="footer">
 				<div class="inner">
 					<header>
@@ -90,13 +67,18 @@
 						&copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>. Images <a href="https://unsplash.com/">Unsplash</a>
 					</div>
 				</div>
-			</section>
+			</section>-->
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
+			<script>
+				window.onload = () => {
+					var windowHeight = window.innerHeight;
+					document.getElementById("dashboards").style.height = ((windowHeight - document.getElementById("header").offsetHeight) - document.getElementById("titulo").offsetHeight - 40) + "px";
+				}
+			</script>
 	</body>
 </html>
